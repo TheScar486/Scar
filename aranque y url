@@ -1,0 +1,10 @@
+python manage.py runserver
+http://127.0.0.1:8000/accounts/login/
+env\Scripts\activate 
+python manage.py show_urls
+
+para añdir producto a la base de datos 
+
+INSERT INTO Catalogo 
+(Codigo, Descripcion, Cantidad_Stock, Unidad_Base, Precio_Compra, Precio_Base, IVA, Caracteristicas, Categoria, Proveedor)
+VALUES

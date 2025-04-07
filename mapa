@@ -1,0 +1,60 @@
+MY APP/
+├── accounts/
+│   ├── migration/
+│   │   └── __init__.py
+│   ├── templates/
+│   │   ├── accounts/
+│   │   │   ├── inicio.html
+│   │   │   ├── login.html
+│   │   │   ├── logout.html
+│   │   └── └── register.html
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py               
+│   └── views.py
+├── distribucion/
+│   ├── migration/
+│   ├── templates/
+│   │   ├── pdf/
+│   │   │   └── pedido_detalle.html
+│   │   ├── distribucion/
+│   │   │   ├── base.html
+│   │   │   └── index.html
+│   │   └── secciones/
+│   │       ├── historial.html
+│   │       ├── entradas.html
+│   │       ├── salidas.html
+│   │       └── solicitudes.html, 
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py               
+│   └── views.py
+├── env/
+├── mi_proyecto/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── asgi.py
+│   ├── settings.py, esta es la ubicacion para la coneccion a mi base de datos a mysql 
+│   ├── urls.py               
+│   └── wsgi.py
+├── static/
+│   ├── css/
+│   │   ├── historial.css
+│   │   ├── auth.css
+│   │   ├── inicio.css
+│   │   └── logout.css
+│   ├── images/
+│   │   └── logo.png
+│   └── js/
+│       └── solicitudes.js aqui esta el js
+├── templates/
+│   └── base.html
+├── manage.py     
+└── ...

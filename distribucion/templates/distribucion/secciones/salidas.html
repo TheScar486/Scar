@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="{% static 'css/salidas.css' %}">
+<div class="section-container">
+    <h2 class="section-title">Control de Salidas</h2>
+    <div class="section-content">
+        <div class="info-card">
+            <h3>Stock Disponible</h3>
+            <p class="stock-amount">1,245 unidades</p>
+        </div>
+        
+        <div class="withdrawal-form">
+            <h3>Retiro de Materiales</h3>
+            <div class="form-row">
+                <label>Artículo:</label>
+                <select class="form-control">
+                    <option>Seleccione artículo...</option>
+                    <option>Material 1</option>
+                    <option>Material 2</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Cantidad:</label>
+                <input type="number" class="form-control">
+            </div>
+            <div class="form-row">
+                <label>Destino:</label>
+                <input type="text" class="form-control">
+            </div>
+            <button class="btn-submit">Registrar Salida</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+/* static/css/logout.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #2563eb;
+    --secondary: #1d4ed8;
+    --light: #ffffff;
+    --dark: #1e293b;
+    --error: #dc2626;
+    --gray: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #2563eb 0%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-attachment: fixed;
+}
+
+.custom-logout-container {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-logout-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.logout-header {
+    margin-bottom: 25px;
+}
+
+.logout-icon {
+    color: var(--primary);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.logout-header h2 {
+    color: var(--dark);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.logout-body {
+    margin: 25px 0;
+    line-height: 1.6;
+}
+
+.logout-body p {
+    color: var(--dark);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.login-link {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-link:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.login-link i {
+    font-size: 0.9rem;
+}
+
+.logout-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.countdown {
+    margin-bottom: 20px;
+}
+
+.countdown p {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+#countdown {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 1.1rem;
+    display: inline-block;
+    min-width: 20px;
+}
+
+.logout-logo {
+    max-width: 120px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    margin-top: 15px;
+}
+
+.logout-logo:hover {
+    opacity: 1;
+}
+
+/* Botón alternativo */
+.return-button {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none; /* Esta línea es la que quita el subrayado */
+}
+
+.return-button:hover {
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+@media (max-width: 480px) {
+    .custom-logout-container {
+        padding: 30px 20px;
+        margin: 0 15px;
+    }
+    
+    .logout-icon {
+        font-size: 2.8rem;
+    }
+    
+    .logout-header h2 {
+        font-size: 1.5rem;
+    }
+}
