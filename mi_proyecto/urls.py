@@ -16,14 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    # URLs personalizadas de accounts - DEBEN IR PRIMERO
-    path('accounts/', include('accounts.urls')),
+    # Redirige la raíz "/" al login
+    path('', RedirectView.as_view(url='/accounts/login/', permanent=False)),
     
-    # URLs de autenticación incorporadas - SOLO SI NECESITAS LAS EXTRA
-
+    path('accounts/', include('accounts.urls')),
     path('distribucion/', include('distribucion.urls')),
 ]
+
