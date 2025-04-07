@@ -20,11 +20,9 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
-    # Redirige la raíz "/" al login
-    path('', RedirectView.as_view(url='/accounts/login/', permanent=False)),
-    
-    path('accounts/', include('accounts.urls')),
-    path('distribucion/', include('distribucion.urls')),
+    path('', RedirectView.as_view(url='/accounts/login/', permanent=False)),  # Redirige a login
+    path('accounts/', include('accounts.urls')),  # Rutas de cuentas
+    path('distribucion/', include('distribucion.urls')),  # Rutas de distribucion
 ]
+
 
