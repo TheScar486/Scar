@@ -1,0 +1,278 @@
+.tools-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.search-container {
+    position: relative;
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search-input {
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+/* Estilo para el número de pedido */
+.alert.alert-info.mt-3 {
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Botón de copiar */
+.btn-outline-secondary {
+    margin-left: 10px;
+    padding: 0.15rem 0.5rem;
+}
+
+/* Animación para el mensaje principal */
+#mensajeExito {
+    transition: opacity 0.5s ease;
+}
+
+/* Estilos para el selector de grupos */
+.group-selector {
+    margin-right: 15px;
+}
+
+.group-select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.group-select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6B7280;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background-color: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    color: #1F2937;
+}
+
+.action-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+}
+
+.action-btn.cant {
+    color: #44bfef;
+    border-color: rgba(68, 185, 239, 0.3);
+}
+
+.action-btn.success {
+    color: #10B981;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.action-btn.danger {
+    color: #EF4444;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.action-btn:hover {
+    background-color: #f5f5f5;
+}
+
+.action-btn.cant:hover {
+    background-color: rgba(68, 239, 225, 0.1);
+}
+
+.action-btn.success:hover {
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.action-btn.danger:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Contenedor principal con scroll */
+.solicitudes-table-container {
+    width: 100%;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    background-color: white;
+    max-height: calc(100vh - 200px);
+    display: block;
+}
+
+/* Contenedor principal con scroll */
+.solicitudes-table-container {
+    width: 100%;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+    background-color: white;
+    max-height: calc(100vh - 200px);
+    display: block;
+}
+
+/* Estructura de tabla completa - CON CAMBIOS APLICADOS */
+.solicitudes-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem; /* Cambio 1: Tamaño de texto reducido (13px) */
+    table-layout: fixed;
+    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; /* Cambio 2: Tipografía moderna */
+}
+
+/* Cabecera fija */
+.solicitudes-data-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #f8fafc;
+}
+
+/* Celdas y filas - CON CAMBIOS APLICADOS */
+.solicitudes-data-table th, 
+.solicitudes-data-table td {
+    padding: 0.9rem 1rem; /* Cambio 3: Altura de fila reducida (de 0.625rem a 0.5rem) */
+    border-bottom: 1px solid #f1f5f9;
+    text-align: left;
+}
+
+.solicitudes-data-table th {
+    font-weight: 500;
+    color: #1e293b;
+    border-bottom-width: 2px;
+    font-size: 1.0rem; /* Tamaño reducido para headers (12px) */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Filas alternas */
+.solicitudes-data-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Efecto hover */
+.solicitudes-data-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Anchos de columna */
+.solicitudes-data-table th:nth-child(1),
+.solicitudes-data-table td:nth-child(1) { width: 15%; min-width: 80px; }
+
+.solicitudes-data-table th:nth-child(2),
+.solicitudes-data-table td:nth-child(2) { width: 55%; min-width: 200px; }
+
+.solicitudes-data-table th:nth-child(3),
+.solicitudes-data-table td:nth-child(3) { width: 20%; min-width: 120px; }
+
+.solicitudes-data-table th:nth-child(4),
+.solicitudes-data-table td:nth-child(4) { width: 10%; min-width: 60px; text-align: center; }
+
+/* Fila seleccionada */
+.solicitudes-data-table tbody tr.selected-row {
+    background-color: #e0f2fe !important;
+    border-left: 3px solid #0ea5e9;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .solicitudes-table-container {
+        max-height: calc(100vh - 180px);
+    }
+    
+    .solicitudes-data-table th,
+    .solicitudes-data-table td {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
+    }
+    
+    .solicitudes-data-table th:nth-child(3),
+    .solicitudes-data-table td:nth-child(3) {
+        display: none;
+    }
+    
+    /* Reajuste de anchos en móviles */
+    .solicitudes-data-table th:nth-child(1),
+    .solicitudes-data-table td:nth-child(1) {
+        width: 20%;
+    }
+    
+    .solicitudes-data-table th:nth-child(2),
+    .solicitudes-data-table td:nth-child(2) {
+        width: 65%;
+    }
+    
+    .solicitudes-data-table th:nth-child(4),
+    .solicitudes-data-table td:nth-child(4) {
+        width: 15%;
+    }
+}
+
+@media (max-width: 480px) {
+    .solicitudes-data-table th:nth-child(1),
+    .solicitudes-data-table td:nth-child(1) {
+        width: 25%;
+    }
+    
+    .solicitudes-data-table th:nth-child(2),
+    .solicitudes-data-table td:nth-child(2) {
+        width: 75%;
+    }
+    
+    .solicitudes-data-table th:nth-child(4),
+    .solicitudes-data-table td:nth-child(4) {
+        display: none;
+    }
+}
+
+
+/* Mejorar visibilidad de la fila seleccionada */
+.selected-row {
+    background-color: rgba(0, 123, 255, 0.2) !important;
+    border-left: 4px solid #ff0000 !important;
+
+}
+
+/* Efecto hover para resaltar al pasar el mouse */
+.data-table tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    cursor: pointer;
+}
