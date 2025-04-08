@@ -179,3 +179,4 @@ if not DEBUG:
     MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_LOGGING = True
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mi_proyecto.settings')
