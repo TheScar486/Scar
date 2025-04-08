@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8-lmq$2^_6hc-2tsfy^b^3mo^)s5!k7_2o%-w^@iu)i2db=30$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['scar-rilf.onrender.com', 'localhost', '127.0.0.1']
 
