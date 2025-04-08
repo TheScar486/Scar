@@ -41,7 +41,7 @@ MY APP/
 │   ├── __init__.py
 │   ├── admin.py
 │   ├── asgi.py
-│   ├── settings.py, esta es la ubicacion para la coneccion a mi base de datos a mysql 
+│   ├── settings.py,
 │   ├── urls.py               
 │   └── wsgi.py
 ├── static/
@@ -53,7 +53,16 @@ MY APP/
 │   ├── images/
 │   │   └── logo.png
 │   └── js/
-│       └── solicitudes.js aqui esta el js
+│       └── solicitudes.
+├── staticfiles/
+│   │   ├── historial.css
+│   │   ├── auth.css
+│   │   ├── inicio.css
+│   │   └── logout.css
+│   ├── images/
+│   │   └── logo.png
+│   └── js/
+│       └── solicitudes.
 ├── templates/
 │   └── base.html
 ├── manage.py     
