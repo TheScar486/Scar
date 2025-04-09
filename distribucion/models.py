@@ -16,7 +16,7 @@ class Catalogo(models.Model):
     Fecha_Registro = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        db_table = 'Catalogo'  # Para mantener el nombre exacto de tu tabla
+        db_table = 'catalogo'  # Para mantener el nombre exacto de tu tabla
         verbose_name = 'Artículo del catálogo'
         verbose_name_plural = 'Artículos del catálogo'
         ordering = ['Descripcion']  # Orden por defecto

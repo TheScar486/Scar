@@ -12,7 +12,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-from pathlib import Path
+import environ
+
+# Inicializa django-environ
+env = environ.Env()
+# Lee el archivo .env
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -86,11 +91,11 @@ WSGI_APPLICATION = 'mi_proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'base_de_datos',
-        'USER': 'root',
-        'PASSWORD': r'450642Osr$_&',  # La 'r' es clave para caracteres especiales
-        'HOST': 'localhost',
-        'PORT': '3307',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES', default_storage_engine=INNODB",
             'charset': 'utf8mb4',
