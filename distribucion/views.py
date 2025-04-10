@@ -177,7 +177,7 @@ def generar_pdf_pedido(request, pedido_id):
     context = {
         'pedido': pedido,
         'items': items,
-        'logo_path': request.build_absolute_uri(static('img/logo.png')),
+        #'logo_path': request.build_absolute_uri(static('img/logo.png')),
         'fecha': pedido.fecha_creacion.strftime("%d/%m/%Y %H:%M")
     }
 

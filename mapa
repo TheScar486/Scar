@@ -51,6 +51,7 @@ MY APP/
 │   │   ├── inicio.css
 │   │   └── logout.css
 │   ├── images/
+│   │   ├── farmacia.png
 │   │   └── logo.png
 │   └── js/
 │       └── solicitudes.

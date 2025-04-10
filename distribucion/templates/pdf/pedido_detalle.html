@@ -6,171 +6,158 @@
     <style>
         @page {
             size: A4;
-            margin: 3cm 1.5cm 2cm 1.5cm;
-            
-            @top-left {
-                content: element(header);
-            }
-            
-            @bottom-center {
-                content: element(footer);
-            }
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            line-height: 1.4;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Cabecera que se repite en cada página */
-        .header {
-            position: running(header);
-            width: 100%;
-            max-height: 100px;
-            overflow: hidden;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-
-        .logo {
-            height: 60px;
-            max-height: 60px;
-        }
-
-        .info-pedido p {
-            margin: 3px 0;
-        }
-
-        /* Contenido principal */
-        .main-content {
-            margin-top: 10px;
-        }
-
-        /* Pie de página que se repite */
-        .footer {
-            position: running(footer);
-            width: 100%;
-            max-height: 30px;
-            text-align: center;
-            font-size: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #eee;
-        }
-
-        h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 11px;
-            page-break-inside: auto;
-        }
-
-        th, td {
-            padding: 3px 6px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-        }
-
-        th {
-            background-color: #f5f5f5;
-            text-align: left;
-        }
-
-        tr {
-            page-break-inside: avoid;
-            page-break-after: auto;
-        }
-
-        tbody tr:nth-child(odd) {
-            background-color: #ffffff;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #f8f9fa;
-        }
-
-        .total {
-            margin-top: 15px;
-            text-align: right;
-            font-weight: bold;
-        }
-
-        /* Clases para control de paginación */
-        .page-break {
-            page-break-after: always;
+            margin: 2cm 1cm 1cm 1cm;
         }
         
-        .avoid-break {
-            page-break-inside: avoid;
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 11px;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .header-center {
+            text-align: center;
+            flex: 1;
+            padding: 0 15px;
+        }
+        
+        .header-logo {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .logo-img {
+            max-height: 60px;
+            width: auto;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        
+        .table thead th {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 5px;
+            text-align: left;
+            font-weight: bold;
+            border: none;
+        }
+        
+        .table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .table tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #e9f7fe;
+        }
+        
+        .table td {
+            padding: 8px 5px;
+            border: none;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 9px;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #e0e0e0;
+            color: #7f8c8d;
+        }
+        
+        .total-items {
+            text-align: right;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #2980b9;
         }
     </style>
 </head>
 <body>
-    <!-- Cabecera que se repetirá en todas las páginas -->
     <div class="header">
-        <div class="header-container">
-            <div>
-                <h2>Pedido #{{ pedido.numero_pedido }}</h2>
-                <p>Fecha: {{ fecha }}</p>
-            </div>
+        <div class="header-info">
+            <h2>Pedido #{{ pedido.numero_pedido }}</h2>
+            <p>Fecha: <span class="highlight">{{ fecha }}</span></p>
+        </div>
+        
+        <div class="header-center">
+            <p><strong>Estado:</strong> <span class="highlight">{{ pedido.get_estado_display }}</span></p>
+            <p><strong>Creado por:</strong> {{ pedido.creado_por|default:"No especificado" }}</p>
+            <p><strong>Grupo:</strong> {{ pedido.grupo|default:"-" }}</p>
+        </div>
+        
+        <div class="header-logo">
             {% if logo_path %}
-            <div>
-                <img src="{{ logo_path }}" class="logo" alt="Logo">
-            </div>
+            <img src="{{ logo_path }}" class="logo-img" alt="Logo Farmacia">
             {% endif %}
         </div>
+    </div>
+    
+    <h3 class="title">Detalle del Pedido</h3>
 
-        <div class="info-pedido">
-            <p><strong>Estado:</strong> {{ pedido.get_estado_display }}</p>
-            <p><strong>Solicitante:</strong> {{ pedido.creado_por }}</p>
-            <p><strong>Grupo:</strong> {{ pedido.grupo }}</p>
-        </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width: 8%">Cantidad</th>
+                <th style="width: 57%">Descripción</th>
+                <th style="width: 20%">Laboratorio</th>
+                <th style="width: 15%">Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.departamento }}</td>
+                <td>{{ item.codigo }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="total-items">
+        <p>Total de ítems: {{ items.count }}</p>
     </div>
 
-    <!-- Contenido principal -->
-    <div class="main-content">
-        <h3>Detalle del Pedido</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 10%">Cantidad</th>
-                    <th style="width: 50%">Descripción</th>
-                    <th style="width: 20%">Laboratorio</th>
-                    <th style="width: 20%">Código</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in items %}
-                <tr class="avoid-break">
-                    <td>{{ item.cantidad }}</td>
-                    <td>{{ item.descripcion }}</td>
-                    <td>{{ item.departamento }}</td>
-                    <td>{{ item.codigo }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <div class="total">
-            <p>Total de ítems: {{ items.count }}</p>
-        </div>
-    </div>
-
-    <!-- Pie de página -->
     <div class="footer">
         <p>Sistema de Gestión de Pedidos - {{ fecha }}</p>
     </div>
