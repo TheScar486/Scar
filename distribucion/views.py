@@ -172,7 +172,7 @@ from django.conf import settings
 
 def generar_pdf_pedido(request, pedido_id):
     pedido = get_object_or_404(Pedido, id=pedido_id)
-    items = ItemPedido.objects.filter(pedido_id=pedido_id)
+    items = ItemPedido.objects.filter(pedido_id=pedido_id).order_by('departamento')  # Ordena por 'departamento'
 
     context = {
         'pedido': pedido,
