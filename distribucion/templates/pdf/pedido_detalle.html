@@ -5,10 +5,10 @@
     <title>Pedido #{{ pedido.numero_pedido }}</title>
     <style>
         @page {
-            size: A4;
+            size: letter;
             margin: 2cm 1cm 1cm 1cm;
         }
-        
+
         body {
             font-family: 'Arial', sans-serif;
             font-size: 11px;
@@ -17,7 +17,7 @@
             color: #333;
             line-height: 1.4;
         }
-        
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -26,27 +26,27 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #e0e0e0;
         }
-        
+
         .header-info {
             flex: 1;
         }
-        
+
         .header-center {
             text-align: center;
             flex: 1;
             padding: 0 15px;
         }
-        
+
         .header-logo {
             flex: 1;
             text-align: right;
         }
-        
+
         .logo-img {
             max-height: 60px;
             width: auto;
         }
-        
+
         .title {
             font-size: 16px;
             font-weight: bold;
@@ -56,39 +56,37 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        
+
         .table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 15px;
         }
-        
+
         .table thead th {
             background-color: #3498db;
             color: white;
-            padding: 8px 5px;
+            padding: 4px 5px; /* menos alto */
             text-align: left;
             font-weight: bold;
-            border: none;
         }
-        
+
         .table tbody tr:nth-child(even) {
             background-color: #f8f9fa;
         }
-        
+
         .table tbody tr:nth-child(odd) {
             background-color: #ffffff;
         }
-        
+
         .table tbody tr:hover {
             background-color: #e9f7fe;
         }
-        
+
         .table td {
-            padding: 8px 5px;
-            border: none;
+            padding: 3px 5px; /* menos alto */
         }
-        
+
         .footer {
             text-align: center;
             font-size: 9px;
@@ -97,14 +95,14 @@
             border-top: 1px solid #e0e0e0;
             color: #7f8c8d;
         }
-        
+
         .total-items {
             text-align: right;
             font-weight: bold;
             color: #2c3e50;
             margin-top: 10px;
         }
-        
+
         .highlight {
             font-weight: bold;
             color: #2980b9;
@@ -117,20 +115,20 @@
             <h2>Pedido #{{ pedido.numero_pedido }}</h2>
             <p>Fecha: <span class="highlight">{{ fecha }}</span></p>
         </div>
-        
+
         <div class="header-center">
             <p><strong>Estado:</strong> <span class="highlight">{{ pedido.get_estado_display }}</span></p>
             <p><strong>Creado por:</strong> {{ pedido.creado_por|default:"No especificado" }}</p>
             <p><strong>Grupo:</strong> {{ pedido.grupo|default:"-" }}</p>
         </div>
-        
+
         <div class="header-logo">
             {% if logo_path %}
             <img src="{{ logo_path }}" class="logo-img" alt="Logo Farmacia">
             {% endif %}
         </div>
     </div>
-    
+
     <h3 class="title">Detalle del Pedido</h3>
 
     <table class="table">
