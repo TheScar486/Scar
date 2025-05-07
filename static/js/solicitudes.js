@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedRow = row;
         selectedRow.classList.add("selected-row");
     }
+
     // Delegación de eventos para seleccionar una fila al hacer clic
     document.getElementById("mainTableBody").addEventListener("click", function (event) {
         let row = event.target.closest("tr");
@@ -171,5 +172,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return cookieValue;
     }
-
 });
