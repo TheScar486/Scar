@@ -172,4 +172,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return cookieValue;
     }
+
+let pingInterval;
+
+function iniciarCreacionPedido() {
+  // Aquí empieza la lógica de crear pedido
+  pingInterval = setInterval(() => {
+    fetch('/ping')  // Asegúrate de que esta ruta exista en tu backend
+      .then(response => console.log('Servidor activo'))
+      .catch(error => console.error('Fallo al hacer ping:', error));
+  }, 5 * 60 * 1000); // Cada 5 minutos
+}
+
+function finalizarCreacionPedido() {
+  clearInterval(pingInterval);
+  // Aquí termina la lógica de crear pedido
+}
+
 });
