@@ -14,6 +14,18 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedRow.classList.add("selected-row");
     }
 
+    function iniciarCreacionPedido() {
+  console.log("Iniciando creacion de pedido y activando el ping...");
+  pingInterval = setInterval(() => {
+    fetch('/ping')  // Asegúrate de que esta ruta exista en tu backend
+      .then(response => {
+        console.log('Servidor activo');
+      })
+      .catch(error => {
+        console.error('Fallo al hacer ping:', error);
+      });
+  }, 5 * 60 * 1000); // Cada 5 minutos
+}
     // Delegación de eventos para seleccionar una fila al hacer clic
     document.getElementById("mainTableBody").addEventListener("click", function (event) {
         let row = event.target.closest("tr");
@@ -172,21 +184,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         return cookieValue;
     }
-
-    let pingInterval;
-
-function iniciarCreacionPedido() {
-  // Aquí empieza la lógica de crear pedido
-  pingInterval = setInterval(() => {
-    fetch('/ping')  // Asegúrate de que esta ruta exista en tu backend
-      .then(response => console.log('Servidor activo'))
-      .catch(error => console.error('Fallo al hacer ping:', error));
-  }, 5 * 60 * 1000); // Cada 5 minutos
-}
-
-function finalizarCreacionPedido() {
-  clearInterval(pingInterval);
-  // Aquí termina la lógica de crear pedido
-}
 
 });
