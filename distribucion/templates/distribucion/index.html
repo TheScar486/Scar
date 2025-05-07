@@ -116,4 +116,37 @@
     </div>
 </div>
 <script src="{% static 'js/inicio_index.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Función para enviar un "ping" al servidor cada 5 minutos (300,000 ms)
+        function sendPing() {
+            fetch(window.location.href, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest' // Ayuda a identificar que es AJAX
+                },
+                credentials: 'same-origin' // Incluye cookies si las hay
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la red');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Ping exitoso", data);
+            })
+            .catch(error => {
+                console.error("Error al hacer ping", error);
+            });
+        }
+
+        // Llamar a la función sendPing cada 5 minutos (300,000 milisegundos)
+        setInterval(sendPing, 300000);
+
+        // Enviar un ping inicial para comenzar
+        sendPing();
+    });
+</script>
 {% endblock %}
